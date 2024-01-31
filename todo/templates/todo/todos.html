@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Todos{% endblock title %}
+
+{% block content %}
+
+<style>
+  .done {
+    text-decoration: line-through;
+}
+</style>
+    <!-- todo -->
+        <section class="vh-100 " >
+            <div class="container py-5 h-100">
+              <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col col-xl-10">
+          
+                  <div class="card" style="border-radius: 15px;">
+                    <div class="card-body p-5">
+          
+                      <h6 class="mb-3 text-center"> Todo List</h6>
+          
+                      <!-- create todo -->
+                      <div id = 'addedit-todo-form'>
+                        {% include "todo\partials\createtodo\createtodo.html" %}
+                      </div>
+                      
+                      <!-- end create todo -->
+                      
+
+                      <ul class="list-group mb-0" id='todos'>
+                        {% for todo in todos %}
+                        <!-- one todo -->
+                        {% include "todo\partials\onetodo\todo.html" %}
+                        <!-- end one todo -->
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+    <!-- end todo -->
+
+
+    {% include "todo\partials\onetodo\todo.js" %}
+    {% include "todo\partials\createtodo\createtodo.js" %}
+    {% include "todo\partials\edittodo\edittodo.js" %}
+
+{% endblock content %}

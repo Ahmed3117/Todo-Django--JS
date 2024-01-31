@@ -1,0 +1,10 @@
+<form id="add-todo-form" dir='ltr' class="d-flex justify-content-center align-items-center mb-4">
+    {% csrf_token %}
+    <div class="form-outline flex-fill">
+    <input type="text" id="title" name="title" class="form-control form-control-lg" />
+    <label class="form-label" for="title">What do you need to do today?</label>
+    </div>
+    <a id = 'submit-form' onclick="addform()" class="btn btn-primary btn-lg ms-2">Add</a>
+</form>
+
+
