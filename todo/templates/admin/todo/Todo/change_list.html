@@ -1,0 +1,33 @@
+{% extends "admin/change_list.html" %}
+{% load i18n static %}
+
+
+{% block result_list %}
+
+
+{% comment %} <div class="pdfbutton">
+  <button class="button btn rounded-pill main-btn" onclick="printPage()" class="button">PDF</button>
+</div> {% endcomment %}
+
+
+
+
+{{ block.super }}
+<script>
+  // Get all the tr elements in the table
+  let rows = document.querySelectorAll("#result_list tr");
+
+  // Loop through each row
+  for (let row of rows) {
+    // Get the td element that contains the image
+    let td = row.querySelector(".field-is_done");
+
+    // Check if the image has alt="True"
+    if (td && td.querySelector("img[alt='True']")) {
+      // Set the background color of the row to red
+      row.style.backgroundColor = "red";
+    }
+  }
+
+</script>
+{% endblock %}
